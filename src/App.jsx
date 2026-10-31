@@ -19,7 +19,7 @@ const [selectedCollision, setSelectedCollision] = useState("all");
 const API_URL = import.meta.env.VITE_API_URL || "http://127.0.0.1:8000";
 
 useEffect(() => {
-  fetch(`${API_URL}/crashes?${params}`)
+ fetch(`${API_URL}/hotspots`)
     .then((response) => response.json())
     .then((data) => {
       setHotspots(data);
@@ -48,7 +48,7 @@ const filteredHotspots = hotspots.filter((spot) => {
 
 
 useEffect(() => {
-  fetch(`${API_URL}/crashes?${params}`)
+  fetch(`${API_URL}/crash-stats`)
     .then((response) => {
       if (!response.ok) {
         throw new Error("Failed to fetch crash statistics");
@@ -65,7 +65,7 @@ useEffect(() => {
 }, []);
 
 useEffect(() => {
-  fetch(`${API_URL}/crashes?${params}`)
+fetch(`${API_URL}/monthly-crash-stats`)
     .then((response) => response.json())
     .then((data) => {
       setMonthlyStats(data);
