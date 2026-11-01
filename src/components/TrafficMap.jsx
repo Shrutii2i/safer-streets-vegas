@@ -48,9 +48,8 @@ function TrafficMap({hotspots, crashes=[],  onBoundsChange}) {
       scrollWheelZoom={false}
     >
       <TileLayer
-        attribution='&copy; OpenStreetMap contributors'
-       url={`https://basemaps.cartocdn.com/rastertiles/light_all/{z}/{x}/{y}.png?key=${import.meta.env.VITE_CARTO_API_KEY}`}
-
+       attribution='&copy; OpenStreetMap contributors'
+       url="https://tile.openstreetmap.org/{z}/{x}/{y}.png"
       />
     
    {hotspots.map((spot) => (
